@@ -19,6 +19,7 @@ export default class AccountListContainer extends EntityListContainer {
     /**
      * Method defines set of properties, which are available inside controlled component inside "this.props"
      * @param state: Link to application state
+     * @param ownProps: Params passed from tag properties
      * @returns Array of properties
      */
     mapStateToProps(state,ownProps) {

@@ -1,6 +1,5 @@
 import {connect} from "react-redux";
 import HeaderComponent from '../components/Header';
-import Store from '../store/Store';
 import Models from '../models/Models';
 
 /**
@@ -11,7 +10,6 @@ class HeaderContainer {
     /**
      * Method defines set of properties, which are available inside controlled component inside "this.props"
      * @param state: Link to application state
-     * @param ownProps: Link to component properties (defined in component tag attributes)
      * @returns Array of properties
      */
     mapStateToProps(state) {
@@ -45,7 +43,6 @@ class HeaderContainer {
     }
 }
 
-var header = new HeaderContainer();
-var Header = connect(header.mapStateToProps.bind(header),header.mapDispatchToProps.bind(header))(HeaderComponent);
+const header = new HeaderContainer();
+const Header = connect(header.mapStateToProps.bind(header),header.mapDispatchToProps.bind(header))(HeaderComponent);
 export {Header}
-export default HeaderContainer;

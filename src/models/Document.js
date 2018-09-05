@@ -22,7 +22,7 @@ class Document extends Entity {
     getItemTitle(item) {
         return this.itemTitle + ' № ' + item['number'] + ' ' +
             (item["date"] ?
-                    t("от")+" "+moment(parseInt(item["date"])*1000).format("DD.MM.YYYY HH:mm:ss") :
+                    t("от")+" "+moment(parseInt(item["date"],10)*1000).format("DD.MM.YYYY HH:mm:ss") :
                     ""
             )
     }

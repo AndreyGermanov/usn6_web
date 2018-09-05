@@ -40,8 +40,8 @@ export default class ReportItemContainer extends DocumentItemContainer {
      */
     mapDispatchToProps(dispatch) {
         return Object.assign(super.mapDispatchToProps(dispatch), {
-            sendByEmail: () => this.sendByEmail(),
-            generateReport: (format) => this.generateReport(format)
+            generateReport: (format) => this.generateReport(format),
+            sendByEmail: () => this.sendByEmail()
         });
     }
 

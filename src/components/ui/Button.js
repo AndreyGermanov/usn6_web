@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 import ScreenComponent from './ScreenComponent';
 import PropTypes from 'prop-types'
-import t from "../../utils/translate/translate";
 
 /**
  * Component which renders button

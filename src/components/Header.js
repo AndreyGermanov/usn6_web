@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Screens} from "../reducers/RootReducer";
 import t from "../utils/translate/translate";
 import {Navbar,Nav,NavItem} from 'react-bootstrap'
 

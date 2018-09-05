@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Header} from '../containers/Header'
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import {HashRouter} from 'react-router-dom'
 import {Route,Switch} from 'react-router'

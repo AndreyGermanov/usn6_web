@@ -9,17 +9,17 @@ class Entity {
     constructor() {
         this.itemName = "entity";
         this.collectionName = "entities";
-        this.itemTitle = "Объект";
-        this.collectionTitle = "Объекты";
+        this.itemTitle = t("Объект");
+        this.collectionTitle = t("Объекты");
     }
 
     /**
      * Method used to initialize item, by populating all empty or undefined fields with default values
      * @param item: Input item
-     * @returns item with populated values
+     * @returns object item with populated values
      */
     initItem(item) {
-        if (!item || typeof(item)!="object") item = {};
+        if (!item || typeof(item)!=="object") item = {};
         return item;
     }
 
@@ -108,10 +108,10 @@ class Entity {
             }
             response.json().then(function(jsonObject) {
                 callback(null,jsonObject)
-            }).catch(function(err) {
+            }).catch(function() {
                 try {
                     callback(null, {});
-                } catch(e) {};
+                } catch(e) {}
             })
         })
     }
@@ -237,36 +237,24 @@ class Entity {
     }
 
     cleanIntField(value) {
-        const result = parseInt(value);
-        if (!isNaN(result) && value == result) return result;
+        const result = parseInt(value,10);
+        value = parseInt(value,10);
+        if (!isNaN(result) && value === result) return result;
         return null;
     }
 
     cleanDecimalField(value) {
         const result = parseFloat(value);
-        if (!isNaN(result) && value == result) return result;
+        value = parseFloat(value);
+        if (!isNaN(result) && value === result) return result;
         return null;
     }
 
     cleanEmailField(value) {
         value = value.toString().trim().toLowerCase();
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!re.test(value)) return null;
         return value;
-    }
-
-    /**
-     * Method returns instance of DetailView container for this model based on model name
-     */
-    getItemView() {
-        return require('../containers/Containers').Item.getInstanceOf(this.itemName);
-    }
-
-    /**
-     * Method returns instance of List View container for this model based on model name
-     */
-    getListView() {
-        return require('../containers/Containers').List.getInstanceOf(this.itemName);
     }
 }
 

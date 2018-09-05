@@ -70,7 +70,7 @@ class Spending extends Document {
                 for (let key in spending_types) {
                     if (!spending_types.hasOwnProperty(key))
                         continue;
-                    spending_types_array.push({id:parseInt(key),text:spending_types[key]});
+                    spending_types_array.push({id:parseInt(key,10),text:spending_types[key]});
                 }
                 callback(null,spending_types_array);
             });

@@ -11,7 +11,7 @@ class Cookie {
     get(name,callback) {
         if (!callback) callback = () => null;
         if (document) {
-            const result = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            const result = document.cookie.match(new RegExp("(^|;) ?" + name + "=([^;]*)(;|$)"));
             callback(result ? result[2] : null);
         } else {
             return callback();
@@ -29,7 +29,7 @@ class Cookie {
         const d = new Date();
         d.setTime(d.getTime() + 24*60*60*1000*365);
         if (document) {
-            document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+            document.cookie = name + "=" + value + ";path=/;expires=" + d.toUTCString();
         }
         callback();
     }
@@ -43,7 +43,7 @@ class Cookie {
         if (!callback) callback = () => null;
         const d = new Date();
         d.setTime(d.getTime() + 24*60*60*1000*-1);
-        document.cookie = name + "=" + '' + ";path=/;expires=" + d.toGMTString();
+        document.cookie = name + "=;path=/;expires=" + d.toUTCString();
         callback();
     }
 

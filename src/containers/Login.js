@@ -11,7 +11,6 @@ class LoginContainer {
     /**
      * Method defines set of properties, which are available inside controlled component inside "this.props"
      * @param state: Link to application state
-     * @param ownProps: Link to component properties (defined in component tag attributes)
      * @returns Array of properties
      */
     mapStateToProps(state) {
@@ -36,7 +35,7 @@ class LoginContainer {
                     dispatch(actions.changeProperty('errors',{"password":t("Введите пароль")}));
                     return;
                 }
-                Backend.login(login,password, function(err,response) {
+                Backend.login(login,password, function(err) {
                     if (err) {
                         dispatch(actions.changeProperty('errors',{"general":t("Ошибка аутентификации")}));
                     }
@@ -46,7 +45,6 @@ class LoginContainer {
     }
 }
 
-var login = new LoginContainer();
-var Login = connect(login.mapStateToProps.bind(login),login.mapDispatchToProps.bind(login))(LoginComponent);
+const login = new LoginContainer();
+const Login = connect(login.mapStateToProps.bind(login),login.mapDispatchToProps.bind(login))(LoginComponent);
 export {Login}
-export default LoginContainer;

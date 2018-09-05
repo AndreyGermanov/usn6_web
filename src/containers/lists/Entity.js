@@ -10,7 +10,6 @@ import EntityContainer from '../Entity';
  */
 class EntityListContainer extends EntityContainer {
 
-
     /**
      * Method defines set of properties, which are available inside controlled component inside "this.props"
      * @param state: Link to application state
@@ -293,7 +292,6 @@ class EntityListContainer extends EntityContainer {
             self.updateList({},callback)
         });
     }
-
 }
 
 export default EntityListContainer;

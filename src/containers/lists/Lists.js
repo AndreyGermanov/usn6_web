@@ -18,6 +18,7 @@ export class Lists {
             case "income": return new IncomeContainer();
             case "spending": return new SpendingContainer();
             case "report": return new ReportContainer();
+            default: return null;
         }
     }
 
@@ -38,6 +39,7 @@ export class Lists {
             case "income": return IncomeContainer.getComponent();
             case "spending": return SpendingContainer.getComponent();
             case "report": return ReportContainer.getComponent();
+            default: return null;
         }
     }
 }

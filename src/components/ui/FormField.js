@@ -1,7 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import ScreenComponent from './ScreenComponent';
-import _ from 'lodash';
 
 /**
  * Abstract base class for all form components, which accepts input

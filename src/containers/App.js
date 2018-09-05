@@ -41,6 +41,6 @@ class AppContainer {
     }
 }
 
-var app = new AppContainer();
-var App = connect(app.mapStateToProps.bind(this),app.mapDispatchToProps.bind(app))(AppComponent);
+const app = new AppContainer();
+const App = connect(app.mapStateToProps.bind(this),app.mapDispatchToProps.bind(app))(AppComponent);
 export {App}

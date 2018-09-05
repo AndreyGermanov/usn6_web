@@ -21,7 +21,7 @@ class Company extends Entity {
             </div>,
             <div className="form-group">
                 <Input name="inn" value={item["inn"]} label={labels["inn"]} containerClass="col-sm-4"/>
-                {item["type"] != 1 ?
+                {parseInt(item["type"],10) !== 1 ?
                     <Input name="kpp" value={item["kpp"]} label={labels["kpp"]} containerClass="col-sm-4"/>
                     : null
                 }
