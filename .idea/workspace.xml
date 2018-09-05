@@ -2,65 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fb95a4d-0a7a-43e6-bd1b-49b4e6c67ca5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Components.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Account.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Company.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Entity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Income.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Items.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/items/Spending.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/lists/Document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/lists/Entity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/lists/Lists.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/Button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/FieldErrorMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/Form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/FormDateTimeField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/FormField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/FormInputField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/FormSelectField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/ScreenComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Containers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Account.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Company.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Entity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Income.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Items.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/items/Spending.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Account.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Company.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Entity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Income.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Lists.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/lists/Spending.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Account.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Company.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Entity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Income.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Models.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Spending.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Backend.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Backend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Report.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Report.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Cookie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/translate/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/translate/lang/en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/translate/translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/translate/translate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Company.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Document.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Income.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Spending.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Company.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Document.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Income.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Spending.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -77,13 +31,18 @@
       <file leaf-file-name="Entity.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/items/Entity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="88" selection-start-line="88" selection-end-line="88" />
+            <state relative-caret-position="475">
+              <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Components.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Components.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Company.js" pinned="false" current-in-tab="false">
@@ -97,13 +56,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Company.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Company.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/items/Company.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Account.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/Account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,47 +117,11 @@
         </entry>
       </file>
       <file leaf-file-name="Report.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Report.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="883">
-              <caret line="122" selection-start-line="122" selection-end-line="141" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Document.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Document.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" selection-start-line="35" selection-end-line="40" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Report.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/lists/Report.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-5">
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FormDateTimeField.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ui/FormDateTimeField.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="66" column="79" lean-forward="true" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -360,48 +295,7 @@
               <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="items" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="lists" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="items" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="lists" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wab3_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wab3_web" type="b2602c69:ProjectViewProjectNode" />
@@ -555,7 +449,7 @@
       <workItem from="1535882365717" duration="617000" />
       <workItem from="1535950194775" duration="21025000" />
       <workItem from="1536038940856" duration="20570000" />
-      <workItem from="1536132361211" duration="3720000" />
+      <workItem from="1536132361211" duration="4413000" />
     </task>
     <task id="LOCAL-00001" summary="remove package.json.lock">
       <created>1534500452146</created>
@@ -568,7 +462,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235390000" />
+    <option name="totallyTimeSpent" value="236083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="0" width="1878" height="1058" extended-state="6" />
@@ -654,36 +548,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/Account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="52" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Company.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" selection-start-line="45" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/items/Account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ui/FormFieldContainer.js" />
     <entry file="file://$PROJECT_DIR$/src/components/ui/StatusMessage.js" />
     <entry file="file://$PROJECT_DIR$/src/components/ui/FieldErrorMessage.js">
@@ -957,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Entity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/lists/Entity.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1093,16 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/items/Entity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/items/Company.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1121,6 +968,45 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Document.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Entity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/items/Entity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Components.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
