@@ -223,11 +223,10 @@ class ReportContainer extends DocumentContainer {
         }
         Store.store.dispatch(actions.changeProperty('isUpdating',true));
         var url = "http://"+backendConfig.host+":"+backendConfig.port+
-            "/report/generate/"+item["company"].replace(/\#/,"").replace(/\:/g,"_")+"/"+item["type"]+"/"+item["period"]+"/email";
+            "/report/generate/"+item["company"].replace(/#/,"").replace(/:/g,"_")+"/"+item["type"]+"/"+item["period"]+"/email";
         var token = Backend.getAuthToken(null,null);
         if (token) url += '?token='+token;
         url += "&email="+email;
-        console.log(url);
         Backend.request(url,{},'GET',{},null, function(err,response) {
             Store.store.dispatch(actions.changeProperty('isUpdating',false));
             if (err) {

@@ -107,6 +107,7 @@ class Report extends Entity {
                                     />
                                     <span className="error">{errors["period"]}</span>
                                 </div>
+
                             </div>
                             <div className="form-group pull-left">
                                 <a className="btn btn-success" style={{cursor:'pointer'}}

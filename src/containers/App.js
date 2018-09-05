@@ -1,8 +1,5 @@
 import {connect} from "react-redux";
-import async from "async";
 import AppComponent from '../components/App';
-import actions from '../actions/Actions';
-import {Screens,ScreenModes} from "../reducers/RootReducer";
 import Backend from '../backend/Backend';
 
 
@@ -18,7 +15,6 @@ class AppContainer {
      */
     mapStateToProps(state) {
         return {
-            screen: state.screen,
             isLogin: state.isLogin,
             authenticating: state.authenticating
         }
@@ -38,13 +34,13 @@ class AppContainer {
      * @returns Object in which keys are method names and values are methods
      */
     mapDispatchToProps(dispatch) {
+        const self = this;
         return {
+            tryLogin: () => self.tryLogin()
         }
     }
 }
 
 var app = new AppContainer();
-app.tryLogin();
-var App = connect(app.mapStateToProps.bind(this),app.mapDispatchToProps.bind(this))(AppComponent);
+var App = connect(app.mapStateToProps.bind(this),app.mapDispatchToProps.bind(app))(AppComponent);
 export {App}
-export default AppContainer;

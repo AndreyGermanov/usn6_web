@@ -5,31 +5,46 @@ class Cookie {
     /**
      * Method returns value of cookie
      * @param name: Name of cookie
-     * @returns value of cookie
+     * @param callback: Function which is called after operation finished
+     * @returns String value of cookie
      */
-    get(name) {
-        var result = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-        return result ? result[2] : null;
+    get(name,callback) {
+        if (!callback) callback = () => null;
+        if (document) {
+            const result = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            callback(result ? result[2] : null);
+        } else {
+            return callback();
+        }
     }
 
     /**
      * Method to set cookie
      * @param name: Name of cookie
      * @param value: Value of cookie
-     * @param days: Expiration period in days
+     * @param callback: Function which is called after operation finished
      */
-    set(name,value,days=365) {
-        var d = new Date();
-        d.setTime(d.getTime() + 24*60*60*1000*days);
-        document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+    set(name,value,callback) {
+        if (!callback) callback = () => null;
+        const d = new Date();
+        d.setTime(d.getTime() + 24*60*60*1000*365);
+        if (document) {
+            document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+        }
+        callback();
     }
 
     /**
      * Method to delete cookie
      * @param name: Name of cookie
+     * @param callback: Function which is called after operation finished
      */
-    delete(name) {
-        this.set(name, '', -1);
+    delete(name,callback) {
+        if (!callback) callback = () => null;
+        const d = new Date();
+        d.setTime(d.getTime() + 24*60*60*1000*-1);
+        document.cookie = name + "=" + '' + ";path=/;expires=" + d.toGMTString();
+        callback();
     }
 
 }

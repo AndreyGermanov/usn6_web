@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import HeaderComponent from '../components/Header';
 import Store from '../store/Store';
+import Models from '../models/Models';
 
 /**
  * Controller used to manage main NavBar component
@@ -32,9 +33,13 @@ class HeaderContainer {
              * @returns {*}
              */
             setStyle: (screen) => {
-                var props = Store.store.getState();
-                var result = props.screen === screen ? {fontWeight:'bold'}: {fontWeight:'normal'};
-                return result;
+                let hash = window.location.hash.replace('#/','');
+                hash = hash.split('/').shift();
+                const model = Models.getInstanceOf(screen);
+                if (model)
+                    return model.itemName === hash || model.collectionName === hash ?
+                        {fontWeight:'bold'}: {fontWeight:'normal'};
+                return {fontWeight:'normal'};
             }
         }
     }

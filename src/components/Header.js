@@ -21,19 +21,19 @@ class Header extends Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
-                    <NavItem eventKey={1} href="/#incomes" style={this.props.setStyle(Screens.INCOMES)}>
+                    <NavItem eventKey={1} href="/#incomes" style={this.props.setStyle('income')}>
                         {t("Доходы")}
                     </NavItem>
-                    <NavItem eventKey={2} href="/#spendings" style={this.props.setStyle(Screens.SPENDINGS)}>
+                    <NavItem eventKey={2} href="/#spendings" style={this.props.setStyle('spending')}>
                         {t("Расходы")}
                     </NavItem>
-                    <NavItem eventKey={3} href="/#reports" style={this.props.setStyle(Screens.REPORTS)}>
+                    <NavItem eventKey={3} href="/#reports" style={this.props.setStyle('report')}>
                         {t("Отчеты")}
                     </NavItem>
-                    <NavItem eventKey={4} href="/#companies" style={this.props.setStyle(Screens.COMPANIES)}>
+                    <NavItem eventKey={4} href="/#companies" style={this.props.setStyle('company')}>
                         {t("Организации")}
                     </NavItem>
-                    <NavItem eventKey={5} href="/#accounts" style={this.props.setStyle(Screens.BANK_ACCOUNTS)}>
+                    <NavItem eventKey={5} href="/#accounts" style={this.props.setStyle('account')}>
                         {t("Банковские счета")}
                     </NavItem>
                 </Nav>
