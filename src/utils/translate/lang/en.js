@@ -88,5 +88,16 @@ export default {
     "Войти": "Login",
     "Введите имя": "Enter the name",
     "Введите пароль": "Enter the password",
-    "Ошибка аутентификации": "Authentication error"
+    "Ошибка аутентификации": "Authentication error",
+    "Обновить": "Update",
+    "Новый": "New",
+    "Учет УСН 6%": "USN 6%",
+    "Сохранить": "Save",
+    "Назад": "Back",
+    "Загрузить PDF": "Download PDF",
+    "Сформировать": "Generate",
+    "от": "on",
+    "г": " ",
+    "г.": " "
+
 }

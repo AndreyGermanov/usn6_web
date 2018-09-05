@@ -106,7 +106,7 @@ class Entity extends Component {
             <div style={{paddingBottom:'7px'}}>
                 {this.listActionButtons}
                 <span className="pull-right">
-                    <input className="form-control" style={{width:'220px'}} placeholder="Search ..."
+                    <input className="form-control" style={{width:'220px'}} placeholder={t("Поиск")+" ..."}
                     onChange={this.props.changeListFilter.bind(this)}/>
                 </span>
             </div>

@@ -10,8 +10,8 @@ class Document extends Entity {
         super();
         this.itemName = "document";
         this.collectionName = "documents";
-        this.itemTitle = "Документ";
-        this.collectionTitle = "Документы";
+        this.itemTitle = t("Документ");
+        this.collectionTitle = t("Документы");
     }
 
     /**

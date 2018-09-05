@@ -20,7 +20,6 @@ class Entity extends Component {
         this.props.updateItem(this.props.uid);
     }
 
-
     /**
      * Main method used to render this view
      * @returns Rendered component

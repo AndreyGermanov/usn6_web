@@ -32,7 +32,7 @@ class Report extends Entity {
                     onPress={() => this.props.generateReport("html")}/>&nbsp;
                 <Button text={t("Загрузить PDF")} className="btn btn-warning"
                         iconClass="glyphicon glyphicon-download-alt" onPress={() => this.props.generateReport("pdf")}/>&nbsp;
-                <Button text={t("Отправить на Email")} className="btn btn-warning"
+                <Button text={t("Отправить по email")} className="btn btn-warning"
                         iconClass="glyphicon glyphicon-envelope" onPress={() => this.props.sendByEmail()}/>
             </div>,
             <div className="form-group pull-right" style={{paddingRight:'15px'}}>

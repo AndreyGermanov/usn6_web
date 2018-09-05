@@ -53,7 +53,7 @@ class Document extends Entity {
                                 />
                             </div>
                             <div className="col-sm-3">
-                                <input className="form-control" style={{width:'220px'}} placeholder={t("Поиск ...")}
+                                <input className="form-control" style={{width:'220px'}} placeholder={t("Поиск")+" ..."}
                                        onChange={(e) => this.props.changeListFilter(e)}/>
                             </div>
                         </div>

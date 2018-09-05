@@ -11,8 +11,8 @@ class Spending extends Document {
         super();
         this.itemName = "spending";
         this.collectionName = "spendings";
-        this.itemTitle = "Расход";
-        this.collectionTitle = "Расходы";
+        this.itemTitle = t("Расход");
+        this.collectionTitle = t("Расходы");
     }
 
     /**

@@ -11,8 +11,8 @@ class Income extends Document {
         super();
         this.itemName = "income";
         this.collectionName = "incomes";
-        this.itemTitle = "Приход";
-        this.collectiontitle = "Приходы";
+        this.itemTitle = t("Приход");
+        this.collectiontitle = t("Приходы");
     }
 
     /**

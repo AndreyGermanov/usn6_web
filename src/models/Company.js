@@ -10,8 +10,8 @@ class Company extends Entity {
         super();
         this.itemName = "company";
         this.collectionName = "companies";
-        this.itemTitle = "Организация";
-        this.collectionTitle = "Организации";
+        this.itemTitle = t("Организация");
+        this.collectionTitle = t("Организации");
     }
 
     /**

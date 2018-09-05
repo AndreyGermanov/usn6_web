@@ -17,8 +17,8 @@ class Report extends Document {
         super();
         this.itemName = "report";
         this.collectionName = "reports";
-        this.itemTitle = "Отчет";
-        this.collectionTitle = "Отчеты";
+        this.itemTitle = t("Отчет");
+        this.collectionTitle = t("Отчеты");
     }
 
     /**
@@ -56,8 +56,11 @@ class Report extends Document {
      * @returns {string} Generated title
      */
     getItemTitle(item) {
-        return this.itemTitle + ' № ' + item['number'] + ' ' +
-            (item["date"] ? t("от")+" "+moment(parseInt(item["date"])*1000).format("YYYY "+t("г")) : "")
+        return this.itemTitle + ' "' + this.getStringOfField_type(item["type"])+ '" ' +
+            (item["date"] ?
+                    t("от")+" "+moment(parseInt(item["date"])*1000).format("DD.MM.YYYY HH:mm:ss") :
+                    ""
+            )
     }
 
     /**
