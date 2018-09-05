@@ -4,6 +4,7 @@ import t from '../../utils/translate/translate';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
 import {Header} from '../../containers/Header';
+import {Button,Input} from '../ui/Form';
 library.add(faStroopwafel);
 
 
@@ -37,10 +38,10 @@ class Entity extends Component {
                     {this.renderListActionButtons()}
                     <table className="table table-bordered table-striped">
                         <tbody>
-                        <tr>
-                            {this.renderHeaderRow()}
-                        </tr>
-                        {this.renderListRows()}
+                            <tr>
+                                {this.renderHeaderRow()}
+                            </tr>
+                            {this.renderListRows()}
                         </tbody>
                     </table>
                     {this.renderFooterNavigation()}
@@ -62,7 +63,6 @@ class Entity extends Component {
                 </div>
             </td>
         ];
-
         for (let field in this.props.listColumns) {
             let sortOrderWidget = null;
             if (this.props.sortOrder.field === field) {
@@ -86,28 +86,23 @@ class Entity extends Component {
      */
     renderListActionButtons() {
         this.listActionButtons = [
-            <a key="add_btn" className="btn btn-success list-nav" href={"#/"+this.props.model.itemName+"/new"}>
-                <i className="glyphicon glyphicon-plus"/>&nbsp;{t("Новый")}
-            </a>,
-            <a key="refreshBtn" className="btn btn-info list-nav" style={{"cursor":"pointer"}}
-                onClick={() => this.props.updateList({})}>
-                <i className="glyphicon glyphicon-refresh"/>&nbsp;{t("Обновить")}
-            </a>
-        ];
+            <Button className="btn btn-success list-nav"
+                    onPress={() => window.location.href="#/"+this.props.model.itemName+"/new"}
+                    iconClass="glyphicon glyphicon-plus" text={t("Новый")}/>,
+            <Button className="btn btn-info list-nav" onPress={() => this.props.updateList()}
+                    iconClass="glyphicon glyphicon-refresh" text={t("Обновить")}/>        ];
         if (this.props.selectedItems && this.props.selectedItems.length>0) {
             const deleteBtn =
-                <a key="deleteBtn" className="btn btn-danger list-nav" style={{"cursor":"pointer"}}
-                    onClick={() => this.props.deleteItems()}>
-                    <i className="glyphicon glyphicon-remove"/>&nbsp;{t("Удалить")}
-                </a>;
+            <Button className="btn btn-danger list-nav" onPress={() => this.props.deleteItems()}
+                    iconClass="glyphicon glyphicon-remove" text={t("Удалить")}/>;
             this.listActionButtons.push(deleteBtn);
         }
         return (
             <div style={{paddingBottom:'7px'}}>
                 {this.listActionButtons}
                 <span className="pull-right">
-                    <input className="form-control" style={{width:'220px'}} placeholder={t("Поиск")+" ..."}
-                    onChange={this.props.changeListFilter.bind(this)}/>
+                    <Input name="search" onChange={this.props.changeListFilter} ownerProps={this.props}
+                           placeholder={t("Поиск")+" ..."} inputStyle={{width:'220px'}}/>
                 </span>
             </div>
         )

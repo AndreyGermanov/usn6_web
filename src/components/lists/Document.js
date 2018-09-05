@@ -14,13 +14,11 @@ class Document extends Entity {
      */
     renderListActionButtons() {
         this.listActionButtons = [
-            <a key="add_btn" className="btn btn-success list-nav" href={"#/"+this.props.model.itemName+"/new"}>
-                <i className="glyphicon glyphicon-plus"/>&nbsp;{t("Новый")}
-            </a>,
-            <a key="refreshBtn" className="btn btn-info list-nav" style={{"cursor":"pointer"}}
-               onClick={() => this.props.updateList()}>
-                <i className="glyphicon glyphicon-refresh"/>&nbsp;{t("Обновить")}
-            </a>
+            <Button className="btn btn-success list-nav"
+                    onPress={() => window.location.href="#/"+this.props.model.itemName+"/new"}
+                    iconClass="glyphicon glyphicon-plus" text={t("Новый")}/>,
+            <Button className="btn btn-info list-nav" onPress={() => this.props.updateList()}
+                iconClass="glyphicon glyphicon-refresh" text={t("Обновить")}/>
         ];
         if (this.props.selectedItems && this.props.selectedItems.length>0) {
             const deleteBtn =
@@ -52,7 +50,6 @@ class Document extends Entity {
             </div>
         )
     }
-
 }
 
 export default Document;
