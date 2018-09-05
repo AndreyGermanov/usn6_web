@@ -13,7 +13,9 @@ class FormInputField extends FormField {
         // Is input field multiline (true or false)
         multiline: PropTypes.bool,
         // Should input field work in password enter mode
-        password: PropTypes.bool
+        password: PropTypes.bool,
+        // Placeholder
+        placeholder: PropTypes.string
     };
 
     /**
@@ -40,7 +42,8 @@ class FormInputField extends FormField {
             <div className={props.containerClass} style={props.containerStyle}>
                 {!props.multiline ?
                     <input className={props.inputClass} style={props.inputStyle} value={props.value}
-                           onChange={(value) => props.onChange(props.name, value)} type={inputType}/> :
+                           onChange={(value) => props.onChange(props.name, value)} type={inputType}
+                            placeholder={props.placeholder}/> :
                     <textarea className={props.inputClass} style={props.inputStyle} value={props.value}
                               onChange={(value) => props.onChange(props.name, value)}/>
                 }
@@ -58,6 +61,7 @@ class FormInputField extends FormField {
         let result = super.getProps();
         result.mulitline = result.mulitline ? result.multiline: false;
         result.password = result.password ? result.password : false;
+        result.placeholder = result.placeholder ? result.placeholder : '';
         return result;
     }
 }

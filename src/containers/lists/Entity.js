@@ -47,7 +47,7 @@ class EntityListContainer extends EntityContainer {
             renderListField: (field_name,value) => this.renderListField(field_name,value),
             changeListPage: (pageNumber) => this.changeListPage(pageNumber),
             changeListSortOrder: (field) => this.changeListSortOrder(field),
-            changeListFilter: (e) => this.changeListFilter(e),
+            changeListFilter: (name,e) => this.changeListFilter(name,e),
             deleteItems: () => this.deleteItems()
         })
     }
@@ -252,7 +252,7 @@ class EntityListContainer extends EntityContainer {
      * list rows by search phrase
      * @param e: Link to "Search" input filed
      */
-    changeListFilter(e) {
+    changeListFilter(name,e) {
         if (!e || !e.target) {
             return
         }

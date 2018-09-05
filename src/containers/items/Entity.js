@@ -91,7 +91,6 @@ class EntityItemContainer extends EntityContainer {
         }
         else if (e && e.target)
             value = e.target.value;
-        console.log(value);
         const state = Store.getState();
         const item = _.cloneDeep(state.item);
         if (!item[this.model.itemName])

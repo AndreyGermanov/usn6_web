@@ -1,8 +1,7 @@
 import React from 'react';
 import Entity from './Entity';
 import t from "../../utils/translate/translate";
-import DateTime from 'react-datetime';
-import moment from "moment-timezone";
+import Form,{DateTime,Input,Button} from '../ui/Form';
 
 /**
  * Base component to manage Documents (both list and item views). All documents inherits from it
@@ -35,29 +34,20 @@ class Document extends Entity {
             <div style={{paddingBottom:'7px'}}>
                 {this.listActionButtons}
                 <span className="pull-right">
-                    <form className="form-horizontal">
+                    <Form ownerProps={this.props}>
                         <div className="form-group">
                             <label className="control-label col-sm-2">{t("Период")}</label>
-                            <div className="col-sm-3">
-                                <DateTime value={moment(this.props.periodStart*1000)}
-                                          dateFormat="DD.MM.YYYY"
-                                          timeFormat={false}
-                                          onChange={this.props.changePeriodField.bind(this,'periodStart')}
-                                />
-                            </div>
-                            <div className="col-sm-3">
-                                <DateTime value={moment(this.props.periodEnd*1000)}
-                                          dateFormat="DD.MM.YYYY"
-                                          timeFormat={false}
-                                          onChange={this.props.changePeriodField.bind(this,'periodEnd')}
-                                />
-                            </div>
-                            <div className="col-sm-3">
-                                <input className="form-control" style={{width:'220px'}} placeholder={t("Поиск")+" ..."}
-                                       onChange={(e) => this.props.changeListFilter(e)}/>
-                            </div>
+                            <DateTime name="periodStart" value={this.props.periodStart} dateFormat="DD.MM.YYYY"
+                                      timeFormat={false} onChange={this.props.changePeriodField}
+                                      containerClass="col-sm-3"/>
+                            <DateTime name="periodEnd" value={this.props.periodEnd} dateFormat="DD.MM.YYYY"
+                                      timeFormat={false} onChange={this.props.changePeriodField}
+                                      containerClass="col-sm-3"/>
+                            <Input name="search" onChange={this.props.changeListFilter}
+                                   placeholder={t("Поиск")+" ..."} inputStyle={{width:'220px'}}
+                                    containerClass="col-sm-3"/>
                         </div>
-                    </form>
+                    </Form>
                 </span>
             </div>
         )
