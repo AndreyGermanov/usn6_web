@@ -181,6 +181,7 @@ class EntityListContainer extends EntityContainer {
         const selectedItems = [];
         if (!this.isAllItemsChecked()) {
             for (let index in list) {
+                if (!list.hasOwnProperty(index)) continue;
                 selectedItems.push(list[index].uid);
             }
         }
@@ -249,6 +250,7 @@ class EntityListContainer extends EntityContainer {
     /**
      * Method called when user changed value in "Search" field in list view. Used to filter
      * list rows by search phrase
+     * @param name: Name of "Search ..." field in form
      * @param e: Link to "Search" input filed
      */
     changeListFilter(name,e) {

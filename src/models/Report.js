@@ -38,7 +38,7 @@ class Report extends Document {
 
     /**
      * Method returns field labels for all fields of this model
-     * @returns Array
+     * @returns Object
      */
     getFieldLabels() {
         return {
@@ -198,13 +198,13 @@ class Report extends Document {
      * Methods used to render presentations of field values
      * in list view
      * @param value: Source value
-     * @returns formatted value
+     * @returns string - formatted value
      */
     getStringOfField_period(value) {
         if (this.cleanIntField(value)) {
             return moment(value*1000).format("YYYY "+t("г."));
         } else {
-            return 0;
+            return "0";
         }
     }
 

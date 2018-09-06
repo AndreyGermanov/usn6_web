@@ -32,7 +32,7 @@ class Income extends Document {
 
     /**
      * Method returns field labels for all fields of this model
-     * @returns Array
+     * @returns Object
      */
     getFieldLabels() {
         return {

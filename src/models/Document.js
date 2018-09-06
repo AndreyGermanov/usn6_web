@@ -43,13 +43,13 @@ class Document extends Entity {
      * Methods used to render presentations of field values
      * in list view
      * @param value: Source value
-     * @returns formatted value
+     * @returns string - formatted string
      */
     getStringOfField_date(value) {
         if (this.cleanIntField(value)) {
             return moment(value*1000).format("DD.MM.YYYY HH:mm:ss");
         } else {
-            return 0;
+            return "0";
         }
     }
 
@@ -58,7 +58,7 @@ class Document extends Entity {
         if (result!==null) {
             return result.toFixed(2);
         }
-        return 0;
+        return "0";
     }
 }
 

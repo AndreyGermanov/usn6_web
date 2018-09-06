@@ -6,11 +6,15 @@ import Store from '../store/Store';
  */
 class EntityContainer {
 
+    constructor() {
+        this.model = null;
+    }
+
     /**
      * Method defines set of properties, which are available inside controlled component inside "this.props"
      * @param state: Link to application state
      * @param ownProps: properties, sent to item in tag
-     * @returns Array of properties
+     * @returns Object of properties
      */
     mapStateToProps(state,ownProps) {
         return {
@@ -35,11 +39,11 @@ class EntityContainer {
 
     /**
      * Method returns array of properties, the same array that available in this component
-     * @returns Array of properties
+     * @returns Object of properties
      */
     getProps() {
         const state = Store.getState();
-        return this.mapStateToProps(state);
+        return this.mapStateToProps(state,null);
     }
 
     /**

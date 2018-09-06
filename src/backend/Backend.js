@@ -61,7 +61,8 @@ class Backend {
      * Method used to log out user from the system and clear authentication token
      * @param callback: Method runs when operation finished
      */
-    logout(callback= ()=>null) {
+    logout(callback) {
+        if (!callback) callback = () => null;
         Cookie.delete('token', () => {
             Store.store.dispatch(actions.changeProperty('isLogin',false));
             callback();
@@ -133,6 +134,7 @@ class Backend {
         } else if (method === 'GET') {
             let query_params = [];
             for (const name in params) {
+                if (!params.hasOwnProperty(name)) continue;
                 if (typeof(params[name])!=="function" && typeof(params[name])!=="object") {
                     query_params.push(name + "=" + params[name])
                 }

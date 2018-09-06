@@ -23,7 +23,7 @@ class Entity extends Component {
 
     /**
      * Main method used to render this view
-     * @returns Rendered component
+     * @returns Array of Rendered components
      */
     render() {
         return [
@@ -64,6 +64,7 @@ class Entity extends Component {
             </td>
         ];
         for (let field in this.props.listColumns) {
+            if (!this.props.listColumns.hasOwnProperty(field)) continue;
             let sortOrderWidget = null;
             if (this.props.sortOrder.field === field) {
                 let arrowClass = "";
@@ -123,6 +124,7 @@ class Entity extends Component {
             </td>
         ];
         for (let field in this.props.listColumns) {
+            if (!this.props.listColumns.hasOwnProperty(field)) continue;
             if (typeof(item[field]) !== "undefined") {
                 columns.push(
                     <td key={"list_"+item.uid+"_"+field}>

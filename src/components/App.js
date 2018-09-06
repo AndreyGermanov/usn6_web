@@ -41,11 +41,11 @@ class App extends Component {
                 <div style={{paddingLeft:'15px',paddingRight:'15px'}}>
                     <HashRouter>
                         <Switch>
-                            <Route exact path="/accounts" render={(state) => <Accounts/>}/>
-                            <Route path="/companies" render={(state) =>  <Companies/>}/>
-                            <Route path="/incomes" render={(state) =>  <Incomes/>}/>
-                            <Route path="/spendings" render={(state) =>  <Spendings/>}/>
-                            <Route path="/reports" render={(state) =>  <Reports/>}/>
+                            <Route exact path="/accounts" render={() => <Accounts/>}/>
+                            <Route path="/companies" render={() =>  <Companies/>}/>
+                            <Route path="/incomes" render={() =>  <Incomes/>}/>
+                            <Route path="/spendings" render={() =>  <Spendings/>}/>
+                            <Route path="/reports" render={() =>  <Reports/>}/>
 
                             <Route path="/company/:uid"
                                    render={(state) => {

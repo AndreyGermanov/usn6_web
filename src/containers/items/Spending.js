@@ -42,7 +42,7 @@ export default class SpendingItemContainer extends DocumentItemContainer {
             (callback) => super.updateItem(uid,callback),
             (callback) => self.getCompaniesList((companies) => callback(null,companies)),
             (companies,callback) => self.model.getTypes((error,types) => callback(null,companies,types)),
-            (companies,types,callback) => {
+            (companies,types) => {
                 Store.store.dispatch(actions.changeProperties({
                     'companies_list': companies,
                     'spending_types': types

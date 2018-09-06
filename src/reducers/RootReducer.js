@@ -38,7 +38,8 @@ export default function rootReducer(state=initialState,action) {
             newState[action.name] = _.cloneDeep(action.value);
             break;
         case actions.types.CHANGE_PROPERTIES:
-            for (var name in action.properties) {
+            for (let name in action.properties) {
+                if (!action.properties.hasOwnProperty(name)) continue;
                 newState[name] = _.cloneDeep(action.properties[name]);
             }
             break;

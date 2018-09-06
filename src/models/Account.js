@@ -30,7 +30,7 @@ class Account extends Entity {
 
     /**
      * Method returns field labels for all fields of this model
-     * @returns Array
+     * @returns Object
      */
     getFieldLabels() {
         return {

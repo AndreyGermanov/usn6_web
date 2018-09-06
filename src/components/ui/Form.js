@@ -38,7 +38,7 @@ export default class Form extends ScreenComponent {
             <form className={props.className} style={props.style}>
                 {React.Children.map(self.props.children, child => {
                     return <div {...child.props}>{self.setOwnerProps(child)}</div>;
-                })}
+                },this)}
             </form>
         )
     }
@@ -64,14 +64,13 @@ export default class Form extends ScreenComponent {
                 }
             } else {
                 if (child.children) {
-                    const children = self.setOwnerProps(child);
-                    return children;
+                    return self.setOwnerProps(child);
 
                 } else {
                     return child;
                 }
             }
-        })
+        },this)
     }
 
     /**

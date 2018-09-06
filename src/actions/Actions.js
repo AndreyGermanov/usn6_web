@@ -18,7 +18,7 @@ class Actions {
      * Action used to change single property in application state
      * @param name: Name of property
      * @param value: Value of property
-     * @returns Action object to dispatch to reducer
+     * @returns Object to dispatch to reducer
      */
     changeProperty(name,value) {
         return {
@@ -31,7 +31,7 @@ class Actions {
     /**
      * Action used to change set of properties in application state
      * @param properties: Hashmap of properties
-     * @returns Action object to dispatch to reducer
+     * @returns Object to dispatch to reducer
      */
     changeProperties(properties) {
         return {

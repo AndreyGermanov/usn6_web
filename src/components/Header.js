@@ -16,7 +16,7 @@ class Header extends Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#home">{t("Учет УСН 6%")}</a>
+                        <a href="/">{t("Учет УСН 6%")}</a>
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
@@ -35,6 +35,7 @@ class Header extends Component {
                     <NavItem eventKey={5} href="/#accounts" style={this.props.setStyle('account')}>
                         {t("Банковские счета")}
                     </NavItem>
+                    <NavItem eventKey={6} onClick={() => this.props.logout()}>{t("Выход")}</NavItem>
                 </Nav>
             </Navbar>
         )
