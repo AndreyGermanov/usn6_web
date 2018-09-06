@@ -11,7 +11,7 @@ class Company extends Entity {
     /**
      * Method used to render detail view
      */
-    renderForm(item,labels,errors) {
+    renderForm(item,labels) {
         return [
             <div className="form-group" key="f1">
                 <Input name="name" value={item["name"]} label={labels["name"]}/>

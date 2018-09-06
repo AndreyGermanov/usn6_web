@@ -51,7 +51,7 @@ class Entity extends Component {
                             </div>
                             : ""}
                         <Form ownerProps={this.props}>
-                            {this.renderForm(item,labels,errors)}
+                            {this.renderForm(item,labels)}
                         </Form>
                     </Panel.Body>
                 </Panel>
@@ -76,10 +76,9 @@ class Entity extends Component {
      * Method used to render contents of form in detail view
      * @param item: Entity to display in the form
      * @param labels: Object of labels for items
-     * @param errors: Object of errors
      * @returns array of rendered components
      */
-    renderForm(item,labels,errors) {
+    renderForm(item,labels) {
         return []
     }
 }

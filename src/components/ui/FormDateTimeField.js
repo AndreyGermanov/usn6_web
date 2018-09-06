@@ -19,7 +19,6 @@ class FormDateTimeField extends FormField {
         dateFormat: PropTypes.string,
         // Format of time display (as defined in moment.js)
         timeFormat: PropTypes.string
-
     },FormField.propTypes);
 
     /**

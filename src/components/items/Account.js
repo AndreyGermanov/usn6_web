@@ -11,7 +11,7 @@ class Account extends Entity {
     /**
      * Method used to render detail view
      */
-    renderForm(item,labels,errors) {
+    renderForm(item,labels) {
         return [
             <div className="form-group" key="f1">
                 <Select name="company" value={item["company"]} label={labels["company"]}
