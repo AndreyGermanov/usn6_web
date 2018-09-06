@@ -22,7 +22,7 @@ class Entity extends Component {
 
     /**
      * Main method used to render this view
-     * @returns Rendered component
+     * @returns Array of Rendered components
      */
     render() {
         if (!this.props.item) return null;
@@ -64,7 +64,7 @@ class Entity extends Component {
      * @returns Rendered set of buttons
      */
     renderItemActionButtons() {
-        var result = [];
+        const result = [];
         result.push(<a key="back_btn" className="btn btn-primary list-nav"
                        href={'#'+this.props.model.collectionName}>
             <i className="glyphicon glyphicon-arrow-left"/>&nbsp;{t("Назад")}
@@ -76,18 +76,11 @@ class Entity extends Component {
      * Method used to render contents of form in detail view
      * @param item: Entity to display in the form
      * @param labels: Object of labels for items
+     * @param errors: Object of errors
      * @returns array of rendered components
      */
     renderForm(item,labels,errors) {
         return []
-    }
-
-    /**
-     * Method initializes all properties of item
-     * @returns Initialized item
-     */
-    initItem() {
-        return this.props.item;
     }
 }
 
