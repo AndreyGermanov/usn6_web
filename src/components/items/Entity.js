@@ -30,8 +30,8 @@ class Entity extends Component {
         const labels = this.props.getFieldLabels();
         const errors = this.props.errors;
         return [
-            <Header/>,
-            <div>
+            <Header key="f1"/>,
+            <div key="f2">
                 {this.renderItemActionButtons()}
                 <Panel bsStyle="primary">
                     <Panel.Heading>

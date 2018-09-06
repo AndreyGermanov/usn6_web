@@ -11,21 +11,11 @@ import PropTypes from 'prop-types';
  */
 export default class Form extends ScreenComponent {
 
-    // types of properties which component can accept
-    static propertyTypes = {
+    static propTypes = Object.assign({},{
         // Styles of object
         style: PropTypes.object,
         className: PropTypes.string
-    };
-
-    /**
-     * Class constructor
-     * @param props
-     */
-    constructor(props) {
-        super(props);
-        Object.assign(this.propTypes,Form.propertyTypes);
-    }
+    },ScreenComponent.propTypes);
 
     /**
      * Method used to render component
@@ -52,7 +42,7 @@ export default class Form extends ScreenComponent {
         const self = this;
         const props = this.getProps();
         return React.Children.map(element.props.children, child => {
-            if (!child || !child.props) {
+            if (!child || !child.props || child.type === 'label') {
                 return child;
             } else if (!child.props["ownerProps"]) {
                 if (child.children) {
@@ -85,8 +75,6 @@ export default class Form extends ScreenComponent {
     }
 }
 
-
-Form.propTypes = (new Form()).propTypes;
 export const Input = InputField;
 export const Select = SelectField;
 export const DateTime = DateTimeField;

@@ -27,8 +27,8 @@ class Entity extends Component {
      */
     render() {
         return [
-            <Header/>,
-            <Panel bsStyle="primary">
+            <Header key="f1"/>,
+            <Panel bsStyle="primary" key="f2">
                 <Panel.Heading>
                     <Panel.Title componentClass="h3">
                         {this.props.listTitle}
@@ -56,7 +56,7 @@ class Entity extends Component {
      */
     renderHeaderRow() {
         const result = [
-            <td key="header_column_checkbox">
+            <td key="header_column_checkbox" key="f1">
                 <div align="center">
                     <input type="checkbox" checked={this.props.isAllItemsChecked()}
                            onChange={this.props.selectAllItems.bind(this)}/>
@@ -89,13 +89,13 @@ class Entity extends Component {
         this.listActionButtons = [
             <Button className="btn btn-success list-nav"
                     onPress={() => window.location.href="#/"+this.props.model.itemName+"/new"}
-                    iconClass="glyphicon glyphicon-plus" text={t("Новый")}/>,
+                    iconClass="glyphicon glyphicon-plus" text={t("Новый")} key="b1"/>,
             <Button className="btn btn-info list-nav" onPress={() => this.props.updateList()}
-                    iconClass="glyphicon glyphicon-refresh" text={t("Обновить")}/>        ];
+                    iconClass="glyphicon glyphicon-refresh" text={t("Обновить")} key="b2"/>        ];
         if (this.props.selectedItems && this.props.selectedItems.length>0) {
             const deleteBtn =
             <Button className="btn btn-danger list-nav" onPress={() => this.props.deleteItems()}
-                    iconClass="glyphicon glyphicon-remove" text={t("Удалить")}/>;
+                    iconClass="glyphicon glyphicon-remove" text={t("Удалить")} key="b100"/>;
             this.listActionButtons.push(deleteBtn);
         }
         return (
@@ -103,7 +103,7 @@ class Entity extends Component {
                 {this.listActionButtons}
                 <span className="pull-right">
                     <Input name="search" onChange={this.props.changeListFilter} ownerProps={this.props}
-                           placeholder={t("Поиск")+" ..."} inputStyle={{width:'220px'}}/>
+                           value={this.props.listFilter} placeholder={t("Поиск")+" ..."} inputStyle={{width:'220px'}}/>
                 </span>
             </div>
         )

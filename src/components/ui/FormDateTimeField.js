@@ -12,8 +12,7 @@ import 'react-datetime/css/react-datetime.css'
  */
 class FormDateTimeField extends FormField {
 
-    // types of properties which component can accept
-    static propertyTypes = {
+    static propTypes = Object.assign({},{
         // Mode of date/time selector (days, years, months, time)
         mode: PropTypes.string,
         // Format of date display (as defined in moment.js)
@@ -21,16 +20,7 @@ class FormDateTimeField extends FormField {
         // Format of time display (as defined in moment.js)
         timeFormat: PropTypes.string
 
-    };
-
-    /**
-     * Class constructor
-     * @param props
-     */
-    constructor(props) {
-        super(props);
-        Object.assign(this.propTypes, FormDateTimeField.propertyTypes);
-    }
+    },FormField.propTypes);
 
     /**
      * Method renders component on the screen
@@ -40,10 +30,10 @@ class FormDateTimeField extends FormField {
         const props = this.getProps();
         return [
             props.label ?
-            <label className={props.labelClass} style={props.labelStyle}>
+            <label className={props.labelClass} style={props.labelStyle} key="f1">
                 {props.label}
             </label> : '',
-            <div className={props.containerClass} style={props.containerStyle}>
+            <div className={props.containerClass} style={props.containerStyle} key="f2">
                 <DateTime value={moment(props.value*1000)}
                           onChange={(value) => props.onChange(props.name,value)}
                           dateFormat={props.dateFormat}
@@ -68,7 +58,5 @@ class FormDateTimeField extends FormField {
         return result;
     }
 }
-
-FormDateTimeField.propTypes = (new FormDateTimeField()).propTypes;
 
 export default FormDateTimeField;

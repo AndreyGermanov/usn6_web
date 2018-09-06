@@ -40,7 +40,7 @@ class HeaderContainer {
         const model = Models.getInstanceOf(screen);
         if (model)
             return model.itemName === hash || model.collectionName === hash ?
-        {fontWeight:'bold'}: {fontWeight:'normal'};
+                     {fontWeight:'bold'}: {fontWeight:'normal'};
         return {fontWeight:'normal'};
     }
 

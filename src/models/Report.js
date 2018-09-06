@@ -1,6 +1,6 @@
 import Document from './Document';
 import Backend from "../backend/Backend";
-import backendConfig from "../config/backend";
+import config from "../config/backend";
 import t from "../utils/translate/translate";
 import moment from "moment-timezone";
 import Store from '../store/Store';
@@ -102,8 +102,8 @@ class Report extends Document {
         Store.store.dispatch(actions.changeProperty("errors",{}));
         const errors = this.validate(item);
         if (errors !== null) return errors;
-        let url = "http://"+backendConfig.host+":"+backendConfig.port+
-            "/report/generate/"+item["company"].replace(/#/,"").replace(/:/g,"_")+"/"+item["type"]+"/"+item["period"]+"/"+format;
+        let url = "http://"+config.host+":"+config.port+ "/report/generate/" +
+            item["company"].replace(/#/,"").replace(/:/g,"_")+"/"+item["type"]+"/"+item["period"]+"/"+format;
         Backend.getAuthToken(null,null, function(token) {
             if (token) url += '?token='+token;
             window.open(url);
@@ -119,7 +119,7 @@ class Report extends Document {
     sendByEmail(item,callback) {
         if (!callback)
             callback = () => null;
-        let url = "http://"+backendConfig.host+":"+backendConfig.port+
+        let url = "http://"+config.host+":"+config.port+
             "/report/generate/"+item["company"].replace(/#/,"").replace(/:/g,"_")+"/"+
             item["type"]+"/"+item["period"]+"/email";
         Backend.getAuthToken(null,null, function(token) {

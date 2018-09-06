@@ -8,24 +8,14 @@ import Error from './FieldErrorMessage';
  */
 class FormInputField extends FormField {
 
-    // types of properties which component can accept
-    static propertyTypes = {
+    static propTypes = Object.assign({},{
         // Is input field multiline (true or false)
         multiline: PropTypes.bool,
         // Should input field work in password enter mode
         password: PropTypes.bool,
         // Placeholder
         placeholder: PropTypes.string
-    };
-
-    /**
-     * Class constructor
-     * @param props
-     */
-    constructor(props) {
-        super(props);
-        Object.assign(this.propTypes,FormInputField.propertyTypes);
-    }
+    },FormField.propTypes);
 
     /**
      * Method renders component on the screen
@@ -36,10 +26,10 @@ class FormInputField extends FormField {
         const inputType = props.password ? 'password' : 'text';
         return [
             props.label ?
-                <label className="control-label col-sm-2">
+                <label className="control-label col-sm-2" key="f1">
                     {props.label}
                 </label> : '',
-            <div className={props.containerClass} style={props.containerStyle}>
+            <div className={props.containerClass} style={props.containerStyle} key="f2">
                 {!props.multiline ?
                     <input className={props.inputClass} style={props.inputStyle} value={props.value}
                            onChange={(value) => props.onChange(props.name, value)} type={inputType}
@@ -65,7 +55,5 @@ class FormInputField extends FormField {
         return result;
     }
 }
-
-FormInputField.propTypes = (new FormInputField()).propTypes;
 
 export default FormInputField;

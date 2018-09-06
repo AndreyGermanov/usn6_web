@@ -6,8 +6,7 @@ import ScreenComponent from './ScreenComponent';
  */
 class FormField extends ScreenComponent {
 
-    // types of properties which component can accept
-    static propertyTypes = {
+    static propTypes = Object.assign({}, {
         // Name of field
         name: PropTypes.string.isRequired,
         // Current field value
@@ -32,16 +31,7 @@ class FormField extends ScreenComponent {
         errorClass: PropTypes.string,
         // Text of label (optional, if no text, no label)
         label: PropTypes.string
-    };
-
-    /**
-     * Class constructor
-     * @param props
-     */
-    constructor(props) {
-        super(props);
-        Object.assign(this.propTypes,FormField.propertyTypes);
-    }
+    }, ScreenComponent.propTypes);
 
     /**
      * Method renders component on the screen
@@ -65,13 +55,10 @@ class FormField extends ScreenComponent {
         result.containerClass = result.containerClass ? result.containerClass : "col-sm-10";
         result.errorClass = result.errorClass ? result.errorClass: 'error';
         result.onChange = result.onChange ? result.onChange : result.ownerProps.changeItemField;
-        result.value = result.value ? result.value : null;
+        result.value = result.value ? result.value : '';
         result.label = result.label ? result.label : '';
         return result;
     }
 }
-
-FormField.propTypes = (new FormField()).propTypes;
-
 
 export default FormField;

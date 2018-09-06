@@ -11,20 +11,10 @@ import 'react-select2-wrapper/css/select2.css';
  */
 class FormSelectField extends FormField {
 
-    // types of properties which component can accept
-    static propertyTypes = {
+    static propTypes = Object.assign({}, {
         // Array of items to choose from. Each item is an object of format {value:"",label:""}
         items: PropTypes.array.isRequired
-    };
-
-    /**
-     * Class constructor
-     * @param props
-     */
-    constructor(props) {
-        super(props);
-        Object.assign(this.propTypes, FormSelectField.propertyTypes);
-    }
+    },FormField.propTypes);
 
     /**
      * Method renders component on the screen
@@ -34,10 +24,10 @@ class FormSelectField extends FormField {
         const props = this.getProps();
         return [
             props.label ?
-            <label className={props.labelClass} style={props.labelStyle}>
+            <label className={props.labelClass} style={props.labelStyle} key="f1">
                 {props.label}
             </label> : '',
-            <div className={props.containerClass} style={props.containerStyle}>
+            <div className={props.containerClass} style={props.containerStyle} key="f2">
                 <Select2 value={props.value} style={props.inputStyle}
                          className={props.inputClass} data={props.items}
                          onSelect={(value) => props.onChange(props.name,value)}/>
@@ -74,7 +64,5 @@ class FormSelectField extends FormField {
         return null;
     }
 }
-
-FormSelectField.propTypes = (new FormSelectField()).propTypes;
 
 export default FormSelectField;

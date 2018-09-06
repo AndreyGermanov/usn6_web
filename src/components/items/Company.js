@@ -13,23 +13,23 @@ class Company extends Entity {
      */
     renderForm(item,labels,errors) {
         return [
-            <div className="form-group">
+            <div className="form-group" key="f1">
                 <Input name="name" value={item["name"]} label={labels["name"]}/>
             </div>,
-            <div className="form-group">
+            <div className="form-group" key="f2">
                 <Select name="type" value={item["type"]} label={labels["type"]} items={Company.getTypesList()}/>
             </div>,
-            <div className="form-group">
+            <div className="form-group" key="f3">
                 <Input name="inn" value={item["inn"]} label={labels["inn"]} containerClass="col-sm-4"/>
                 {parseInt(item["type"],10) !== 1 ?
                     <Input name="kpp" value={item["kpp"]} label={labels["kpp"]} containerClass="col-sm-4"/>
                     : null
                 }
             </div>,
-            <div className="form-group">
+            <div className="form-group" key="f4">
                 <Input name="address" value={item["address"]} label={labels["address"]} multiline={true}/>
             </div>,
-            <div className="form-group" align="center">
+            <div className="form-group" align="center" key="f5">
                 <Button onPress={() => this.props.saveToBackend()} text={t("Сохранить")}
                         iconClass="glyphicon glyphicon-ok"/>
             </div>
