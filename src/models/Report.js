@@ -55,7 +55,7 @@ class Report extends Document {
      * @param item - Item to get title form
      * @returns {string} Generated title
      */
-    getItemTitle(item) {
+    getItemPresentation(item) {
         return this.itemTitle + ' "' + this.getStringOfField_type(item["type"])+ '" ' +
             (item["date"] ?
                     t("от")+" "+moment(parseInt(item["date"],10)*1000).format("DD.MM.YYYY HH:mm:ss") :

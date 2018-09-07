@@ -47,7 +47,7 @@ class Account extends Entity {
      * @param item - Item to get title form
      * @returns {string} Generated title
      */
-    getItemTitle(item) {
+    getItemPresentation(item) {
         return this.itemTitle + ' ' + item['number'] + ' ' + t("в") + ' ' + item['bank_name'];
     }
 

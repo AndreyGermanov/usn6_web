@@ -22,7 +22,7 @@ class EntityItemContainer extends EntityContainer {
             uid: ownProps ?  ownProps.uid : "",
             item: state.item[this.model.itemName] ? state.item[this.model.itemName] : {},
             itemSaveSuccessText: state.itemSaveSuccessText,
-            itemTitle: this.model.itemTitle
+            collectionName: this.model.collectionName
         })
     }
 
@@ -37,7 +37,7 @@ class EntityItemContainer extends EntityContainer {
             updateItem: (uid) => this.updateItem(uid),
             changeItemField: (field_name,e) => this.changeItemField(field_name,e),
             saveToBackend: () => this.saveToBackend(),
-            getItemTitle: (item) => this.getItemTitle(item)
+            getItemPresentation: (item) => this.getItemPresentation(item)
         })
     }
 
@@ -178,8 +178,8 @@ class EntityItemContainer extends EntityContainer {
      * @param item: Item for which title generated
      * @returns string Generated title
      */
-    getItemTitle(item) {
-        return this.model.getItemTitle(item);
+    getItemPresentation(item) {
+        return this.model.getItemPresentation(item);
     }
 
 }

@@ -35,13 +35,11 @@ class Entity extends Component {
                     </Panel.Title>
                 </Panel.Heading>
                 <Panel.Body>
-                    {this.renderListActionButtons()}
+                    {this.renderActionButtons()}
                     <table className="table table-bordered table-striped">
                         <tbody>
-                            <tr>
-                                {this.renderHeaderRow()}
-                            </tr>
-                            {this.renderListRows()}
+                            {this.renderHeaderRow()}
+                            {this.renderRows()}
                         </tbody>
                     </table>
                     {this.renderFooterNavigation()}
@@ -51,12 +49,42 @@ class Entity extends Component {
     }
 
     /**
+     * Method used to render management buttons for list view
+     * @returns Rendered components with buttons
+     */
+    renderActionButtons() {
+        this.actionButtons = [
+            <Button className="btn btn-success list-nav"
+                    onPress={() => window.location.href="#/"+this.props.itemName+"/new"}
+                    iconClass="glyphicon glyphicon-plus" text={t("Новый")} key="b1"/>,
+            <Button className="btn btn-info list-nav" onPress={() => this.props.updateList()}
+                    iconClass="glyphicon glyphicon-refresh" text={t("Обновить")} key="b2"/>
+        ];
+        if (this.props.selectedItems && this.props.selectedItems.length>0) {
+            this.actionButtons.push(
+                <Button className="btn btn-danger list-nav" onPress={() => this.props.deleteItems()}
+                        iconClass="glyphicon glyphicon-remove" text={t("Удалить")} key="b100"/>
+            );
+        }
+        return (
+            <div style={{paddingBottom:'7px'}}>
+                {this.actionButtons}
+                <span className="pull-right">
+                    <Input name="search" onChange={this.props.changeListFilter} ownerProps={this.props}
+                           value={this.props.listFilter} placeholder={t("Поиск")+" ..."}
+                           inputStyle={{width:'220px'}}/>
+                </span>
+            </div>
+        )
+    }
+
+    /**
      * Method used to render header columns of List view table
      * @returns Array of rendered columns
      */
     renderHeaderRow() {
         const result = [
-            <td key="header_column_checkbox" key="f1">
+            <td key="f1">
                 <div align="center">
                     <input type="checkbox" checked={this.props.isAllItemsChecked()}
                            onChange={this.props.selectAllItems.bind(this)}/>
@@ -75,38 +103,21 @@ class Entity extends Component {
             result.push(<th key={"header_column_"+field} style={{cursor:'pointer'}}
                             onClick={this.props.changeListSortOrder.bind(this,field)}>
                 {this.props.listColumns[field].title}{sortOrderWidget}
-                </th>);
+                </th>
+            );
         }
-
-        return result
+        return <tr>{result}</tr>
     }
 
     /**
-     * Method used to render management buttons for list view
-     * @returns Rendered components with buttons
+     * Method used to render list of items in List view
+     * @returns Rendered array of table rows
      */
-    renderListActionButtons() {
-        this.listActionButtons = [
-            <Button className="btn btn-success list-nav"
-                    onPress={() => window.location.href="#/"+this.props.model.itemName+"/new"}
-                    iconClass="glyphicon glyphicon-plus" text={t("Новый")} key="b1"/>,
-            <Button className="btn btn-info list-nav" onPress={() => this.props.updateList()}
-                    iconClass="glyphicon glyphicon-refresh" text={t("Обновить")} key="b2"/>        ];
-        if (this.props.selectedItems && this.props.selectedItems.length>0) {
-            const deleteBtn =
-            <Button className="btn btn-danger list-nav" onPress={() => this.props.deleteItems()}
-                    iconClass="glyphicon glyphicon-remove" text={t("Удалить")} key="b100"/>;
-            this.listActionButtons.push(deleteBtn);
-        }
-        return (
-            <div style={{paddingBottom:'7px'}}>
-                {this.listActionButtons}
-                <span className="pull-right">
-                    <Input name="search" onChange={this.props.changeListFilter} ownerProps={this.props}
-                           value={this.props.listFilter} placeholder={t("Поиск")+" ..."} inputStyle={{width:'220px'}}/>
-                </span>
-            </div>
-        )
+    renderRows() {
+        const self = this;
+        return this.props.list.map(function(item) {
+            return self.renderRow(item);
+        }, this);
     }
 
     /**
@@ -114,7 +125,7 @@ class Entity extends Component {
      * @param item: Data item for which need to render row
      * @returns Rendered row
      */
-    renderListRow(item) {
+    renderRow(item) {
         const columns = [
             <td key={"list_"+item.uid+"_uid"}>
                 <div align="center">
@@ -128,7 +139,7 @@ class Entity extends Component {
             if (typeof(item[field]) !== "undefined") {
                 columns.push(
                     <td key={"list_"+item.uid+"_"+field}>
-                        <a href={"#"+this.props.model.itemName+"/"+item.uid.replace(/#/g,"").replace(/:/g,"_")}>
+                        <a href={"#"+this.props.itemName+"/"+item.uid.replace(/#/g,"").replace(/:/g,"_")}>
                             {this.props.renderListField(field,item[field])}
                         </a>
                     </td>
@@ -141,64 +152,62 @@ class Entity extends Component {
     }
 
     /**
-     * Method used to render list of items in List view
-     * @returns Rendered array of table rows
-     */
-    renderListRows() {
-        const self = this;
-        return this.props.list.map(function(item) {
-            return self.renderListRow(item);
-        }, this);
-    }
-
-    /**
      * Method renders footer of List view form (pages navigation)
      * @returns {*} Rendered component
      */
     renderFooterNavigation() {
-        let leftButton = null;
-        let rightButton = null;
-        let pageSelector = null;
-        const numPages = Math.ceil(this.props.numberOfItems/this.props.itemsPerPage);
-        if (this.props.pageNumber>1) {
-            leftButton =
-                <a className="btn btn-primary"
-                   onClick={this.props.changeListPage.bind(this,this.props.pageNumber-1)}>
-                    <i className="glyphicon glyphicon-arrow-left"/>
-                </a>
-        }
-        if (numPages>1 && this.props.pageNumber<numPages) {
-            rightButton =
-                <a className="btn btn-primary"
-                   onClick={this.props.changeListPage.bind(this,this.props.pageNumber+1)}>
-                    <i className="glyphicon glyphicon-arrow-right"/>
-                </a>
-        }
-        if (numPages>1) {
-            const pages = [];
-            for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
-                pages.push(<option key={"page_select_" + pageNumber} value={pageNumber}>{pageNumber}</option>)
-            }
-            pageSelector =
-                <select value={this.props.pageNumber} className="form-control"
-                        onChange={(elem) => {
-                            this.props.changeListPage(elem.target.value)
-                        }}>
-                    {pages}
-                </select>
-        }
         return (
             <div align="center">
                 <table>
                     <tbody>
                     <tr>
-                        <td className="padding-nav">{leftButton}</td>
-                        <td className="padding-nav">{pageSelector}</td>
-                        <td>{rightButton}</td>
+                        <td className="padding-nav">{this.renderNavButton("left")}</td>
+                        <td className="padding-nav">{this.renderNavPagesList()}</td>
+                        <td>{this.renderNavButton("right")}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
+        )
+    }
+
+    /**
+     * Method used to render "Left" or "Right" arrow buttons on footer navigation
+     * @param type: "left" or "right" arrow
+     * @returns {*} Rendered button
+     */
+    renderNavButton(type) {
+        const numPages = Math.ceil(this.props.numberOfItems/this.props.itemsPerPage);
+        let icon = "glyphicon-arrow-left";
+        let onPress = () => this.props.changeListPage(this.props.pageNumber - 1);
+        if (type === "right") {
+            icon = "glyphicon-arrow-right";
+            onPress = () => this.props.changeListPage(this.props.pageNumber + 1);
+            if (numPages<=1 || this.props.pageNumber>=numPages) return null;
+        } else {
+            if (this.props.pageNumber <= 1) return null;
+        }
+        return (
+            <Button className="btn btn-primary" iconClass={"glyphicon "+icon} onPress={onPress}/>
+        )
+    }
+
+    /**
+     * Method used to render page selector dropdown in footer navigation
+     * @returns {*} Rendered dropdown
+     */
+    renderNavPagesList() {
+        const numPages = Math.ceil(this.props.numberOfItems/this.props.itemsPerPage);
+        if (numPages<=1) return null;
+        const pages = [];
+        for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
+            pages.push(<option key={"page_select_" + pageNumber} value={pageNumber}>{pageNumber}</option>)
+        }
+        return (
+            <select value={this.props.pageNumber} className="form-control"
+                    onChange={(elem) => this.props.changeListPage(elem.target.value)}>
+                {pages}
+            </select>
         )
     }
 }

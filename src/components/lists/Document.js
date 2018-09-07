@@ -12,10 +12,10 @@ class Document extends Entity {
      * Method used to render management buttons for list view
      * @returns Rendered components with buttons
      */
-    renderListActionButtons() {
-        this.listActionButtons = [
+    renderActionButtons() {
+        this.actionButtons = [
             <Button className="btn btn-success list-nav" key="b101"
-                    onPress={() => window.location.href="#/"+this.props.model.itemName+"/new"}
+                    onPress={() => window.location.href="#/"+this.props.itemName+"/new"}
                     iconClass="glyphicon glyphicon-plus" text={t("Новый")}/>,
             <Button className="btn btn-info list-nav" onPress={() => this.props.updateList()} key="b102"
                 iconClass="glyphicon glyphicon-refresh" text={t("Обновить")}/>
@@ -24,11 +24,11 @@ class Document extends Entity {
             const deleteBtn =
                 <Button key="b110" className="btn btn-danger list-nav" text={t("Удалить")}
                    onPress={() => this.props.deleteItems()} iconClass="glyphicon glyphicon-remove"/>;
-            this.listActionButtons.push(deleteBtn);
+            this.actionButtons.push(deleteBtn);
         }
         return (
             <div style={{paddingBottom:'7px'}}>
-                {this.listActionButtons}
+                {this.actionButtons}
                 <span className="pull-right">
                     <Form ownerProps={this.props}>
                         <div className="form-group">

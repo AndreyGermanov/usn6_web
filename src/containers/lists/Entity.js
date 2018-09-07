@@ -20,7 +20,7 @@ class EntityListContainer extends EntityContainer {
         return Object.assign(super.mapStateToProps(state,ownProps),{
             list: state.list[this.model.itemName] ? state.list[this.model.itemName] : [],
             listColumns: {},
-            itemTitle: this.itemTitle,
+            itemName: this.model.itemName,
             selectedItems: state.selectedItems[this.model.itemName] ? state.selectedItems[this.model.itemName]: [],
             sortOrder: state.sortOrder[this.model.itemName] ? state.sortOrder[this.model.itemName]: {},
             pageNumber: state.pageNumber[this.model.itemName] ? state.pageNumber[this.model.itemName]: 1,
@@ -219,6 +219,10 @@ class EntityListContainer extends EntityContainer {
     changeListPage(pageNumber) {
         const state = Store.getState();
         const statePageNumber = _.cloneDeep(state.pageNumber);
+        const props = this.getProps();
+        const numPages = Math.ceil(props.numberOfItems/props.itemsPerPage);
+        if (pageNumber<1) pageNumber = 1;
+        if (pageNumber>numPages) pageNumber = numPages;
         statePageNumber[this.model.itemName] = pageNumber;
         Store.store.dispatch(actions.changeProperty('pageNumber',statePageNumber));
         this.updateList();

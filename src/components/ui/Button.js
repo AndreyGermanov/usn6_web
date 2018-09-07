@@ -10,7 +10,7 @@ class Button extends ScreenComponent {
 
     static propTypes = Object.assign({},{
         // Text of button
-        text: PropTypes.string.isRequired,
+        text: PropTypes.string,
         // Style of button view
         style: PropTypes.object,
         // Button click handler

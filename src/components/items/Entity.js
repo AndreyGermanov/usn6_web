@@ -3,7 +3,7 @@ import {Panel} from "react-bootstrap";
 import t from '../../utils/translate/translate';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
-import Form from '../ui/Form';
+import Form,{Button} from '../ui/Form';
 import {Header} from '../../containers/Header';
 library.add(faStroopwafel);
 
@@ -28,28 +28,18 @@ class Entity extends Component {
         if (!this.props.item) return null;
         const item = this.props.initItem(this.props.item);
         const labels = this.props.getFieldLabels();
-        const errors = this.props.errors;
         return [
             <Header key="f1"/>,
             <div key="f2">
-                {this.renderItemActionButtons()}
+                {this.renderActionButtons()}
                 <Panel bsStyle="primary">
                     <Panel.Heading>
                         <Panel.Title componentClass="h3">
-                            {this.props.getItemTitle(item)}
+                            {this.props.getItemPresentation(item)}
                         </Panel.Title>
                     </Panel.Heading>
                     <Panel.Body>
-                        {errors["general"] ?
-                            <div className="alert alert-danger">
-                                {errors["general"]}
-                            </div>
-                            : ""}
-                        {this.props.itemSaveSuccessText ?
-                            <div className="alert alert-success">
-                                {this.props.itemSaveSuccessText}
-                            </div>
-                            : ""}
+                        {this.renderStatusMessage()}
                         <Form ownerProps={this.props}>
                             {this.renderForm(item,labels)}
                         </Form>
@@ -63,13 +53,31 @@ class Entity extends Component {
      * Method renders buttons above detail view form
      * @returns Rendered set of buttons
      */
-    renderItemActionButtons() {
+    renderActionButtons() {
         const result = [];
-        result.push(<a key="back_btn" className="btn btn-primary list-nav"
-                       href={'#'+this.props.model.collectionName}>
-            <i className="glyphicon glyphicon-arrow-left"/>&nbsp;{t("Назад")}
-        </a>);
+        result.push(<Button key="back_btn" className="btn btn-primary list-nav" text={t("Назад")}
+                            onPress={() => window.location.href = '#'+this.props.collectionName}
+                            iconClass="glyphicon glyphicon-arrow-left"/>);
         return <div style={{paddingBottom:'10px'}}>{result}</div>;
+    }
+
+    /**
+     * Method used to render status message above form with "Success" or "Error" depending on current state
+     * @returns {*} Rendered component
+     */
+    renderStatusMessage() {
+        let className = "";
+        let message = "";
+        const errors = this.props.errors;
+        if (errors["general"] && errors["general"].length) {
+            className = "alert alert-danger";
+            message = errors["general"];
+        } else if (this.props.itemSaveSuccessText) {
+            className = "alert alert-success";
+            message = this.props.itemSaveSuccessText;
+        }
+        if (message)
+            return <div className={className}>{message}</div>
     }
 
     /**
