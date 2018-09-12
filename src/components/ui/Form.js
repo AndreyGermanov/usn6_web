@@ -42,7 +42,7 @@ export default class Form extends ScreenComponent {
         const self = this;
         const props = this.getProps();
         return React.Children.map(element.props.children, child => {
-            if (!child || !child.props || child.type === 'label') {
+            if (!child || !child.props || child.type === 'label' | child.type === 'a') {
                 return child;
             } else if (!child.props["ownerProps"]) {
                 if (child.children) {

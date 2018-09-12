@@ -44,6 +44,7 @@ export default {
     "Упорядочить": "Sort",
     "Удалить": "Delete",
     "Период": "Interval",
+    "Доход": "Income",
     "Доходы": "Incomes",
     "Расходы": "Spendings",
     "Системная ошибка": "Internal error",
@@ -99,6 +100,16 @@ export default {
     "от": "on",
     "г": " ",
     "г.": " ",
-    "Выход": "Logout"
-
+    "Выход": "Logout",
+    "Забыл пароль": "Forgotten password",
+    "Регистрация": "Register",
+    "Отправить": "Send",
+    "Вход в систему": "Login",
+    "Ссылка на активацию учетной записи была отправлена по указанному email адресу": "Activation link has sent to specified email address",
+    "Форма отправки ссылки на сброс пароля":"Reset password link form",
+    "Ссылка на форму ввода нового пароля отправлена по указанному email-адресу": "Reset password link has sent to specified email address",
+    "Введите новый пароль": "Enter new password",
+    "Изменить пароль": "Change password",
+    "Пароль успешно изменен": "Password changed successfully",
+    "Подтверждение пароля": "Confirm password"
 }

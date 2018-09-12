@@ -19,7 +19,6 @@ class EntityContainer {
     mapStateToProps(state,ownProps) {
         return {
             model: this.model,
-
             isLogin: state.isLogin,
             isUpdating: state.isUpdating,
             errors: state.errors

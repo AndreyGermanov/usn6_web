@@ -22,7 +22,10 @@ const initialState = {
     selectedItems: {},
     itemsPerPage: {"company":10},
     numberOfItems: {"company":16},
-    companies_list: []
+    companies_list: [],
+    registerEmailSent: false,
+    resetPasswordEmailSent: false,
+    resetPasswordComplete: false
 };
 
 /**

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import t from "../utils/translate/translate";
+import t from "../../utils/translate/translate";
 import {Panel} from 'react-bootstrap';
 
 class Login extends Component {
+
+    /**
+     * Method used to render component
+     * @returns {*} Rendered component
+     */
     render() {
         return (
             <Panel bsStyle="primary" className="col-sm-6 screen-center">
@@ -39,10 +44,16 @@ class Login extends Component {
                             </div>
                         </div>
                         <div className="form-group" align="center">
+                            <a href="#/request_reset_password">{t("Забыл пароль")+" ?"}</a>
+                        </div>
+                        <div className="form-group" align="center">
                             <a style={{cursor:'pointer'}} className="btn btn-primary"
                                onClick={() => { this.props.doLogin(this.loginField.value,this.passwordField.value)}}>
                                 <i className="glyphicon glyphicon-ok"/>&nbsp;{t("Войти")}
                             </a>
+                        </div>
+                        <div className="form-group" align="center">
+                            <a href="#/register">{t("Регистрация")}</a>
                         </div>
                     </form>
                 </Panel.Body>

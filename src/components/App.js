@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import {HashRouter} from 'react-router-dom'
 import {Route,Switch} from 'react-router'
-import {Login} from '../containers/Login';
-import {List,Item} from '../containers/Containers';
+import {List,Item,Auth} from '../containers/Containers';
 import '../styles/App.css';
 
 /**
@@ -29,9 +28,23 @@ class App extends Component {
         const Spending = Item.getComponentOf("spending");
         const Report = Item.getComponentOf("report");
 
+        const Login = Auth.getComponentOf("login");
+        const Register = Auth.getComponentOf("register");
+        const RequestResetPassword = Auth.getComponentOf("request_reset_password");
+        const ResetPassword = Auth.getComponentOf("reset_password");
+
         if (!this.props.isLogin) {
             if (!this.props.authenticating) {
-                return <Login/>
+                return (
+                    <HashRouter>
+                        <Switch>
+                            <Route path="/register" render={() => <Register/>}/>
+                            <Route path="/request_reset_password" render={() => <RequestResetPassword/>}/>
+                            <Route path="/reset_password/:token" render={() => <ResetPassword/>}/>
+                            <Route render={() => <Login/>}/>
+                        </Switch>
+                    </HashRouter>
+                )
             } else {
                 return null
             }
@@ -46,7 +59,6 @@ class App extends Component {
                             <Route path="/incomes" render={() =>  <Incomes/>}/>
                             <Route path="/spendings" render={() =>  <Spendings/>}/>
                             <Route path="/reports" render={() =>  <Reports/>}/>
-
                             <Route path="/company/:uid"
                                    render={(state) => {
                                        return <Company uid={state.match.params.uid}/>
