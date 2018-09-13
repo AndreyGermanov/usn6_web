@@ -230,7 +230,6 @@ class Entity {
                 errors[field_name] = error;
             }
         }
-        console.log(errors);
         return has_errors ? errors : null;
     }
 

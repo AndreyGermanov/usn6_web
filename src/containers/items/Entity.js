@@ -6,10 +6,10 @@ import EntityContainer from '../Entity';
 import Models from '../../models/Models';
 
 /**
- * Controller class for Entity base component. Contains all methods and properties, which used by any model
- * management module
+ * Base controller class for all object detail views. Contains all methods and properties, which used by all
+ * descendant lists
  */
-class EntityItemContainer extends EntityContainer {
+export default class EntityItemContainer extends EntityContainer {
 
     /**
      * Method defines set of properties, which are available inside controlled component inside "this.props"
@@ -75,7 +75,7 @@ class EntityItemContainer extends EntityContainer {
                 result = {};
             item[self.model.itemName] = result;
             Store.store.dispatch(actions.changeProperties({'item':item,'isUpdating':false}));
-            callback();
+            callback()
         });
     }
 
@@ -126,7 +126,7 @@ class EntityItemContainer extends EntityContainer {
      * @returns {boolean} True if validated successfully and false otherwise
      */
     validateItem() {
-        const item = this.getProps().item;
+        const item = this.getDataToSave();
         Store.store.dispatch(actions.changeProperty("errors",{}));
         const errors = this.model.validate(item);
         if (errors !== null) {
@@ -236,7 +236,4 @@ class EntityItemContainer extends EntityContainer {
     getItemPresentation(item) {
         return this.model.getItemPresentation(item);
     }
-
 }
-
-export default EntityItemContainer;
